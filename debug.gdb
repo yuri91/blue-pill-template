@@ -1,9 +1,12 @@
-target remote :3333
+set serial baud 115200
+target extended-remote /dev/ttyACM0
+monitor swdp_scan
+attach 1
 
 # print demangled symbols by default
 set print asm-demangle on
 
-monitor arm semihosting enable
+#monitor arm semihosting enable
 
 # # send captured ITM to the file itm.fifo
 # # (the microcontroller SWO pin must be connected to the programmer SWO pin)
